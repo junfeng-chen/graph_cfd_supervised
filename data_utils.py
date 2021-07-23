@@ -1,6 +1,4 @@
 import tensorflow as tf
-from scipy.sparse import diags
-from scipy.interpolate import griddata
 import pandas as pd
 import numpy as np
 np.seterr(divide='ignore', invalid='ignore')

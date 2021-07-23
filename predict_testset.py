@@ -7,7 +7,6 @@ from data_utils import *
 from params import *
 from network_utils import *
 from training_utils import *
-from loss import MSE
 
 best_model   = invariant_edge_model(edge_feature_dims, num_filters, initializer)
 best_model.load_weights('./best_model/best_model')
@@ -30,7 +29,6 @@ max_values = tf.constant([1.4902634620666504, 0.799094557762146, 1.5584141016006
 shape_list = nodes_set_test.keys()
 n = len(shape_list)
 MAE_testset = list()
-MSE_testset = list()
 body_force = np.zeros((n,4))
 
 start = time.time()
@@ -59,7 +57,6 @@ for shape in shape_list:
 
 #np.savetxt('best_model/body_force.csv', body_force, delimiter=',', header='lift,drag,lift_pred,drag_pred', fmt='%1.16f', comments='')
 np.savetxt('best_model/MAE_testset.csv', MAE_testset, delimiter=',', header='MAE', fmt='%1.16f', comments='')
-np.savetxt('best_model/MSE_testset.csv', MSE_testset, delimiter=',', header='MSE', fmt='%1.16f', comments='')
-print(np.mean(MAE_testset))
+print('Average MAE on the test set is ', np.mean(MAE_testset))
 end = time.time()
 print(end - start)
