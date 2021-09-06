@@ -39,4 +39,8 @@ Network architecture is defined in
 network_utils.py
 ```
 
+To do prediction on the cylinder or the naca0012 airfoil, run
+```
+predict.py
+```
 ![cylinder](./images/cylinder.png)
